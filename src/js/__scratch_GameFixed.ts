@@ -76,8 +76,8 @@ export class Game {
     this.speed = this.options.speedInitial;
     this.tick = 0;
 
-    this.food = this.spawnFood();
     this.snake = this.spawnSnake();
+    this.food = this.spawnFood();
 
     this.start();
   }

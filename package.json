@@ -1,18 +1,26 @@
 {
   "name": "snake",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
+  "description": "The classic Snake game on an HTML canvas.",
+  "license": "UNLICENSED",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "prettier": "npx prettier --write ."
+    "build": "vp build",
+    "check": "vp check",
+    "check:fix": "vp check --fix",
+    "clean": "rm -rf .vite-hooks/_ *.log coverage dist node_modules",
+    "dev": "vp dev",
+    "prepare": "vp config",
+    "preview": "vp preview",
+    "test": "vp test --passWithNoTests",
+    "test:watch": "vp test watch"
   },
   "devDependencies": {
-    "prettier": "2.8.3",
-    "sass": "1.57.1",
-    "typescript": "4.9.3",
-    "vite": "4.0.0"
+    "typescript": "^7.0.0",
+    "vite-plus": "0.2.8"
+  },
+  "engines": {
+    "node": ">=24"
   }
 }

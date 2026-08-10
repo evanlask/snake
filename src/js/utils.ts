@@ -1,4 +1,5 @@
-import { Dimensions, Direction, Position } from './types';
+import { Direction } from './types.ts';
+import type { Dimensions, Position } from './types.ts';
 
 export function getDirectionFromKey(key: string) {
   switch (key) {
@@ -15,31 +16,37 @@ export function getDirectionFromKey(key: string) {
   }
 }
 
-export function getRandomPosition(dimensions: Dimensions) {
+export function getRandomPosition(dimensions: Dimensions): Position {
   const { width, height } = dimensions;
 
   return {
     x: Math.floor(Math.random() * width),
     y: Math.floor(Math.random() * height),
-  } as Position;
+  };
 }
 
 export function getRandomPositionWithExclusions(dimensions: Dimensions, exclusions: Position[]) {
-  let position: Position | null = null;
+  const { width, height } = dimensions;
 
-  // Retry until a position is generated that is not excluded
-  while (position === null) {
-    const newPosition = getRandomPosition(dimensions);
+  // Collect every position that is not excluded, then pick from those. Guessing
+  // and retrying instead would never terminate once the snake fills the board.
+  const available: Position[] = [];
 
-    const isPositionExcluded =
-      exclusions.find((excludedPosition) => isEqualPosition(newPosition, excludedPosition)) !== undefined;
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      const candidate = { x, y };
 
-    if (!isPositionExcluded) {
-      position = newPosition;
+      if (!exclusions.some((excludedPosition) => isEqualPosition(candidate, excludedPosition))) {
+        available.push(candidate);
+      }
     }
   }
 
-  return position;
+  if (available.length === 0) {
+    throw new Error(`No available position in ${width}x${height} with ${exclusions.length} exclusions`);
+  }
+
+  return available[Math.floor(Math.random() * available.length)];
 }
 
 export function isOpposingDirections(a: Direction, b: Direction) {
@@ -59,7 +66,7 @@ export function isEqualPosition(a: Position, b: Position) {
   return a.x === b.x && a.y === b.y;
 }
 
-export function translatePosition(position: Position, direction: Direction) {
+export function translatePosition(position: Position, direction: Direction): Position {
   switch (direction) {
     case Direction.Up:
       return {
@@ -81,5 +88,7 @@ export function translatePosition(position: Position, direction: Direction) {
         x: position.x - 1,
         y: position.y,
       };
+    default:
+      throw new Error(`Unknown direction: ${String(direction)}`);
   }
 }

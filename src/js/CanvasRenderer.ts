@@ -1,5 +1,5 @@
-import { Game } from './Game';
-import { Position } from './types';
+import type { Game } from './Game.ts';
+import type { Position } from './types.ts';
 
 export class CanvasRenderer {
   // Elements
