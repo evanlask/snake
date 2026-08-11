@@ -1,6 +1,6 @@
 import '../css/app.css';
-import { CanvasRenderer } from './CanvasRenderer.ts';
-import { Game } from './Game.ts';
+import { CanvasRenderer } from './CanvasRenderer';
+import { Game } from './Game';
 
 const element = document.getElementById('app');
 

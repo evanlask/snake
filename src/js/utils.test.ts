@@ -2,8 +2,8 @@
 // re-exports it here. The prefer-vite-plus-imports lint rule enforces this.
 import { afterEach, describe, expect, expectTypeOf, it, vi } from 'vite-plus/test';
 
-import { Direction } from './types.ts';
-import type { Position } from './types.ts';
+import { Direction } from './types';
+import type { Position } from './types';
 import {
   getDirectionFromKey,
   getRandomPosition,
@@ -11,7 +11,7 @@ import {
   isEqualPosition,
   isOpposingDirections,
   translatePosition,
-} from './utils.ts';
+} from './utils';
 
 // The largest double below 1, which is the worst case Math.random can return.
 const ALMOST_ONE = 1 - Number.EPSILON / 2;

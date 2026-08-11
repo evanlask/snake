@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vite-plus/test';
 
-import { Game } from './Game.ts';
+import { Game } from './Game';
 
 type Listener = (event: { key: string; preventDefault: () => void }) => void;
 

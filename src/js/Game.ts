@@ -1,8 +1,8 @@
-import { Food } from './Food.ts';
-import { Snake } from './Snake.ts';
-import { Direction } from './types.ts';
-import type { GameOptions } from './types.ts';
-import { getDirectionFromKey, getRandomPosition, getRandomPositionWithExclusions } from './utils.ts';
+import { Food } from './Food';
+import { Snake } from './Snake';
+import { Direction } from './types';
+import type { GameOptions } from './types';
+import { getDirectionFromKey, getRandomPosition, getRandomPositionWithExclusions } from './utils';
 
 export class Game {
   // Options

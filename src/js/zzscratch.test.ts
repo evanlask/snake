@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vite-plus/test';
 
-import type { Position } from './types.ts';
-import { getRandomPositionWithExclusions } from './utils.ts';
+import type { Position } from './types';
+import { getRandomPositionWithExclusions } from './utils';
 
 function allCells(width: number, height: number) {
   const cells: Position[] = [];

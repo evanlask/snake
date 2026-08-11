@@ -1,7 +1,7 @@
-import type { Food } from './Food.ts';
-import { Direction } from './types.ts';
-import type { Dimensions, Position } from './types.ts';
-import { isEqualPosition, isOpposingDirections, translatePosition } from './utils.ts';
+import type { Food } from './Food';
+import { Direction } from './types';
+import type { Dimensions, Position } from './types';
+import { isEqualPosition, isOpposingDirections, translatePosition } from './utils';
 
 export class Snake {
   public direction: Direction | null = null;

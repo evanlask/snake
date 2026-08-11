@@ -1,4 +1,4 @@
-import type { Position } from './types.ts';
+import type { Position } from './types';
 
 export class Food {
   public position: Position;

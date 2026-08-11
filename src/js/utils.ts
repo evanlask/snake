@@ -1,5 +1,5 @@
-import { Direction } from './types.ts';
-import type { Dimensions, Position } from './types.ts';
+import { Direction } from './types';
+import type { Dimensions, Position } from './types';
 
 export function getDirectionFromKey(key: string) {
   switch (key) {
